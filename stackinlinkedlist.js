@@ -22,8 +22,20 @@ class Stack {
     this.head = this.head.next
     temp = null
   }
-}
 
+  printList(){
+    let currentNode = this.head
+    while(currentNode != null){
+        console.log(currentNode.data);
+        currentNode =  currentNode.next   
+    }
+}
+}
+const add = new Stack()
+add.push(7)
+add.push(9)
+add.push(8)
+add.printList()
 
 
 

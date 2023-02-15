@@ -7,7 +7,7 @@ class Queue {
         this.items.push(elm)
     }
     dequeue(){
-       return this.items.unshift()
+       return this.items.shift()
     }
 
     isEmpty(){
