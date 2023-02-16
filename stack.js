@@ -8,7 +8,9 @@ class Stack {
     }
 
     pop(elm) {
+    
         this.items.pop(elm)
+       
     }
 
     peek() {

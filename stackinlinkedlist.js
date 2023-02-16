@@ -2,6 +2,7 @@ class Node {
   constructor(data,next){
     this.data = data
     this.next = null
+    
   }
 }
 
@@ -35,9 +36,12 @@ const add = new Stack()
 add.push(7)
 add.push(9)
 add.push(8)
+add.push(10)
+add.push(80)
+
 add.printList()
 
-
+console.log(add);
 
 
 
