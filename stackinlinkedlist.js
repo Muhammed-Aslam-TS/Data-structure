@@ -25,10 +25,8 @@ class Stack {
   }
 
   printList(){
-    let currentNode = this.head
-    while(currentNode != null){
-        console.log(currentNode.data);
-        currentNode =  currentNode.next   
+    while(this.head){
+        console.log(this.head.data);
     }
 }
 }

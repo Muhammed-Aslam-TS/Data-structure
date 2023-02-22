@@ -15,7 +15,7 @@ class Queue {
     }
 
     peek(){
-        if(!this.isEmpty){
+        if(this.items){
             return this.items[0]
         }
         return null
@@ -37,5 +37,6 @@ queue.enqueue(10)
 queue.enqueue(100)
 queue.enqueue(50)
 queue.enqueue(20)
+
 console.log(queue.peek());
 queue.print()

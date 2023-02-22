@@ -1,0 +1,1 @@
+for (let j = i+1; j < arr.length; j++) {

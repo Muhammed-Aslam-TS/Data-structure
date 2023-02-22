@@ -21,4 +21,3 @@ let sorted = quikeSort(arr)
 
 console.log(sorted);
 
-
