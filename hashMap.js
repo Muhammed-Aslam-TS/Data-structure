@@ -127,6 +127,8 @@ list.set('a',10)
 list.set('b',20)
 list.set('c',30)
 
+
+
 list.print()
 
 
@@ -145,7 +147,8 @@ list.print()
 
 
 
-
+// 1800 2587 170
+// 1860 2580 79
 
 
 

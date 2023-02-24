@@ -1,14 +1,14 @@
 class Stack {
-    constructor(){
-        this.items =[]
+    constructor() {
+        this.items = []
         this.size = 0
     }
 
-    push(data){
+    push(data) {
         this.items.push(data)
         this.size++
     }
-    pop(){
+    pop() {
         let rmv = this.items.pop()
         this.size--
         return rmv
@@ -16,12 +16,12 @@ class Stack {
 }
 
 class Que {
-    constructor(){
-        this.items=[]
+    constructor() {
+        this.items = []
         this.size = 0
     }
 
-    nq(data){
+    nq(data) {
         this.items.push(data)
         this.size++
     }

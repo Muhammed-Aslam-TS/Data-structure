@@ -12,7 +12,7 @@ quikeSort = (arr) => {
         arr[i] < piv ? l.push(arr[i]) : r.push(arr[i])
     }
 
-    return quikeSort(l).concat(piv, quikeSort(r))
+    return  quikeSort(l).concat(piv, quikeSort(r))
 }
 
 
