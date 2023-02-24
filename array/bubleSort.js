@@ -2,7 +2,7 @@ bubleSort = (arr) => {
 
     let swapped
     do {
-        swapped =false
+        swapped = false
         for (let i = 0; i < arr.length; i++) {
             if (arr[i] > arr[i + 1]) {
                 let temp = arr[i + 1]
@@ -12,7 +12,7 @@ bubleSort = (arr) => {
             }
 
         }
-    }while(swapped)
+    } while (swapped)
 }
 
 

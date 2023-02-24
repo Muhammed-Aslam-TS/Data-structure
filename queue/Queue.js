@@ -40,3 +40,4 @@ queue.enqueue(20)
 
 console.log(queue.peek());
 queue.print()
+console.log(queue);

@@ -71,8 +71,6 @@ class Stack {
   }
 
   display() {
-
-
     while ( this.head) {
       console.log( this.head.data)
       this.head =  this.head.next

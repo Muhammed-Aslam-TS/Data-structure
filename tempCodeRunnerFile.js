@@ -1,4 +1,0 @@
-  if (arr.length) {
-        
-        hello()
-    }

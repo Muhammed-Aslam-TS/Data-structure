@@ -126,8 +126,9 @@ const list = new hashTable(50)
 list.set('a',10)
 list.set('b',20)
 list.set('c',30)
-
-
+list.set('h',15)
+list.set('l',25)
+list.set('q',35)
 
 list.print()
 
