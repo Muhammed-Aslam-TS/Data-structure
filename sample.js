@@ -1,95 +1,80 @@
-// class hashtable {
-//     constructor(size) {
-//         this.table = new Array(size)
-//         this.size = size
-//     }
-
-//     hash(key) {
-//         let total = 0
-//         for (let i = 0; i < key.length; i++) {
-//             total = + key.charCodeAt(i)
-//         }
-//         return total % this.size
-//     }
-
-//     set(key, valu) {
-//         let index = this.hash(key)
-//         let bucket = this.table[index]
-//         if (!bucket) {
-//             this.table[index] = [[key, valu]]
-//         } else {
-//             let samekey = bucket.find(item => item[0] == key)
-//             if (samekey) {
-//                 samekey[1] = valu
-//             } else {
-//                 bucket.push([key, valu])
-//             }
-//         }
-//     }
-
-//     get(key) {
-//         let index = this.hash(key)
-//         let bucket = this.table[index]
-//         if (bucket) {
-//             let samekey = bucket.find(item => item[0] == key)
-//             if (samekey) {
-//                 return samekey[1]
-//             }
-//         }
-//         return undefined
-//     }
-
-//     print() {
-//         for (let i = 0; i < this.table.length; i++) {
-//             if (this.table[i]) {
-//                 console.log(i, this.table[i]);
-//             }
-
-//         }
-//     }
-
-// }
-
-// let table = new hashtable(20)
-
-// table.set('a', 70)
-// table.set('e', 50)
-// table.set('b', 20)
-
-
-
-// console.log(table.get('a'));
-
-// table.print()
-
-
-
-mergeSort = (arr) => {
-    if (arr.length < 2) {
-        return arr
+class Node {
+    constructor(data) {
+        this.data = data
+        this.left = null
+        this.right = null
     }
-
-    let mid = Math.floor(arr.length / 2)
-    let left = arr.slice(0, mid)
-    let right = arr.slice(mid)
-
-    return merge(mergeSort(left), mergeSort(right))
 }
 
-merge = (left, right) => {
-    let sorted = []
+class binarySearchTree {
+    constructor() {
+        this.root = null
+    }
 
-    while (left.length && right.length) {
-        if (left[0] < right[0]) {
-            sorted.push(left.shift())
-        } else {
-            sorted.push(right.shift())
+    insert(data) {
+        const newNode = new Node(data)
+
+        if (!this.root) {
+            this.root = newNode
+            return this
+        }
+
+        let current = this.root
+        while (true) {
+            if (data == current.data) {
+                return undefined
+            }
+
+            if (data < current.data) {
+                if (!current.left) {
+                    current.left = newNode
+                    return this
+                }
+                current = current.left
+            } else {
+                if (!current.right) {
+                    current.right = newNode
+                    return this
+                }
+                current = current.ri
+            }
         }
     }
-    return [...sorted,...left,...right]
+    find(data) {
+        if (!this.root) {
+            return false
+        }
+
+        let current = this.root
+        let found = false
+
+        while (current && !found) {
+            if (data === current.data) {
+                found =  true
+            } else if (data < current.data) {
+                current = current.left
+            } else {
+                current = current.left
+            }
+        }
+        if (!found) {
+            return false
+        }
+        return current
+    }
 }
 
+const list = new binarySearchTree()
+list.insert(10)
+list.insert(5)
+list.insert(15)
+list.insert(7)
+list.insert(3)
+list.insert(2)
 
-let arr = [5,6,7,4,3,1,2]
-let sort = mergeSort(arr)
-console.log(sort);
+
+
+
+console.log(list);
+
+console.log(list.find(5));
