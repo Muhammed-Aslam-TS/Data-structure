@@ -84,6 +84,7 @@ const head = new Stack()
 head.push(11)
 head.push(22)
 head.push(33)
+head.pop()
 
 head.display()
 
