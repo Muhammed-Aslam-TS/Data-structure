@@ -5,7 +5,6 @@ class heep {
     parentNode(index) {
         return Math.floor((index - 1) / 2)
     }
-
     leftNode(index) {
         return (2 * index + 1)
     }
@@ -24,7 +23,7 @@ class heep {
         this.heep.push(item);
         var index = this.heep.length - 1;
         var parent = this.parentNode(index);
-        while(this.heep[parent] && this.heep[parent] < this.heep[index]) {
+        while (this.heep[parent] && this.heep[parent] < this.heep[index]) {
             this.swap(parent, index);
             index = this.parentNode(index);
             parent = this.parentNode(index);
@@ -38,9 +37,10 @@ class heep {
         var index = 0;
         var leftChild = this.leftNode(index);
         var rightChild = this.rightNode(index);
-        while(this.heep[leftChild] && this.heep[leftChild] > this.heep[index] || this.heep[rightChild] > this.heep[index]){
+        while (this.heep[leftChild] && this.heep[leftChild] > this.heep[index]
+            || this.heep[rightChild] > this.heep[index]) {
             var max = leftChild;
-            if(this.heep[rightChild] && this.heep[rightChild] > this.heep[max]){
+            if (this.heep[rightChild] && this.heep[rightChild] > this.heep[max]) {
                 max = rightChild
             }
             this.swap(max, index);
@@ -52,22 +52,11 @@ class heep {
     }
 }
 
-function heepSort(arr){
-    var sorted = [];
-    var heep1 = new heep();
-    
-    for(let i=0; i<arr.length; i++){
-        heep1.insert(arr[i]);
-    }
-    
-    for(let i=0; i<arr.length; i++){
-        sorted.push(heep1.delete());
-    }
-    return sorted;
-}
 
-let arr = [1, 6, 2, 3, 7, 3, 4, 6, 9];
-arr = heepSort(arr);
+const arr = ["apple", "banana", "orange", "grape", "watermelon"];
+const sortedArr = heapSort(arr);
+console.log(sortedArr);  // Output: ["apple", "banana", "grape", "orange", "watermelon"]
+
 
 const x = new heep()
 
@@ -80,4 +69,3 @@ x.insert(30)
 
 console.log(x);
 
-console.log(arr);

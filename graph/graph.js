@@ -21,17 +21,17 @@ class Graph {
         this.elements[vertex2].add(vertex1)
     }
 
-    removeEdge(vertex1,vertex2){
+    removeEdge(vertex1, vertex2) {
         this.elements[vertex1].delete(vertex2)
         this.elements[vertex2].delete(vertex1)
     }
 
-    remVertex(vertex){
+    remVertex(vertex) {
         if (!this.elements[vertex]) {
             return
         }
 
-        for(let elements of this.elements[vertex]){
+        for (let elements of this.elements[vertex]) {
             this.removeEdge(vertex, elements)
         }
 
@@ -46,9 +46,10 @@ class Graph {
     }
 
 
+
     display() {
         for (let vertex in this.elements) {
-            console.log(vertex + "--" + [...this.elements[vertex]]);
+            console.log(vertex + "-->" + [...this.elements[vertex]]);
         }
     }
 }
@@ -64,10 +65,8 @@ graph.edge('b', 'c')
 graph.edge('c', 'd')
 
 graph.display()
-console.log(graph.hasEdge('a', 'c'));
 
-// graph.removeEdge('a','b')
-// graph.remVertex('a')
-// graph.remVertex('c')
-graph.display()
+// graph.display()
+
+graph.bfs('a')
 

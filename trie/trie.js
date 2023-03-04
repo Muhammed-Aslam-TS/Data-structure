@@ -1,61 +1,67 @@
-class TrieNode {
-    constructor() {
-      this.children = new Map();
-      this.isEndOfWord = false;
-    }
+class Node {
+  constructor() {
+    this.children = new Map();
+    this.isEnd = false;
   }
-  
-  class Trie {
-    constructor() {
-      this.root = new TrieNode();
-    }
-  
-    insert(word) {
-      let node = this.root;
-      for (let char of word) {
-        if (!node.children.has(char)) {
-          node.children.set(char, new TrieNode());
-        }
-        node = node.children.get(char);
-      }
-      node.isEndOfWord = true;
-    }
-  
-    search(word) {
-      let node = this.root;
-      for (let char of word) {
-        if (!node.children.has(char)) {
-          return false;
-        }
-        node = node.children.get(char);
-      }
-      return node.isEndOfWord;
-    }
-  
-    startsWith(prefix) {
-      let node = this.root;
-      for (let char of prefix) {
-        if (!node.children.has(char)) {
-          return false;
-        }
-        node = node.children.get(char);
-      }
-      return true;
-    }
+}
+
+class Trie {
+  constructor() {
+    this.root = new Node();
   }
- 
-  
-  const trie = new Trie();
 
-// Test insert method
-trie.insert('safeer');
-trie.insert('cars');
-trie.insert('bike');
+  insert(word) {
+    let currentNode = this.root;
+    for (let letter of word) {
+      if (!currentNode.children.has(letter)) {
+        currentNode.children.set(letter, new Node());
+      }
+      currentNode = currentNode.children.get(letter);
+    }
+    currentNode.isEnd = true;
+  }
 
-// Test search method
-console.log(trie.search('safeer')); 
-console.log(trie.search('saleel')); 
 
-// Test startsWith method
-console.log(trie.startsWith('saf'));
-console.log(trie.startsWith('sal'));
+
+  search(word) {
+    if (!word.length) return false;
+    let currentNode = this.root
+    for (let letter of word) {
+      if (!currentNode.children.has(letter)) return false
+      currentNode = currentNode.children.get(letter)
+    }
+    return currentNode.isEnd
+  }
+
+
+
+  startsWith(prefix) {
+    if (!prefix.length) return false;
+    let currentNode = this.root;
+    for (let letter of prefix) {
+      if (!currentNode.children.has(letter)) return false;
+      currentNode = currentNode.children.get(letter);
+    }
+    return true;
+  }
+
+}
+
+
+const trie = new Trie();
+
+trie.insert('aslam')
+trie.insert('anshid')
+trie.insert('shamil')
+trie.insert('mongodb')
+trie.insert('nodeJs')
+trie.insert('express')
+trie.insert('javaScript')
+trie.insert('angular')
+trie.insert('react')
+trie.insert('typeScript')
+console.log(trie.search('shami'));
+console.log(trie.search('shamil'));
+
+console.log(trie);
+console.log(trie.startsWith('da'));

@@ -140,10 +140,10 @@ bst.insert(4);
 bst.insert(7);
 bst.insert(13);
 
-bst.remove(4)
-bst.remove(7)
 
-// console.log(bst);
+bst.remove(10)
+
+console.log(bst);
 
 bst.inOrder(bst.root)
 console.log('_____inOrder________________');
